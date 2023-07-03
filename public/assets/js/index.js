@@ -1,3 +1,17 @@
+const express = require('express');
+const fs = require('fs')
+let notesData = {}
+fs.readFile('../db/db.json', 'utf-8', (err, data) => {
+  if (err) throw err
+
+  notesData = JSON.parse(data)
+})
+const path = require('path');
+const PORT = 3001;
+const app = express();
+app.use(express.static('public'));
+
+
 let noteTitle;
 let noteText;
 let saveNoteBtn;
@@ -26,7 +40,7 @@ const hide = (elem) => {
 let activeNote = {};
 
 const getNotes = () =>
-  fetch('/api/notes', {
+  fetch('/db/api/notes', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -34,7 +48,7 @@ const getNotes = () =>
   });
 
 const saveNote = (note) =>
-  fetch('/api/notes', {
+  fetch('db/api/notes', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -43,7 +57,7 @@ const saveNote = (note) =>
   });
 
 const deleteNote = (id) =>
-  fetch(`/api/notes/${id}`, {
+  fetch(`db/api/notes/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -181,3 +195,7 @@ if (window.location.pathname === '/notes') {
 }
 
 getAndRenderNotes();
+
+app.listen(PORT, () =>
+  console.log(`Example app listening at http://localhost:${PORT}`)
+);
