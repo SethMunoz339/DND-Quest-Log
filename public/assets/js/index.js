@@ -34,28 +34,61 @@ const hide = elem => {
 };
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
-const getNotes = () =>
-  fetch('/api/notes', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
+const getNotes = async () => {
+  try {
+    const response = await fetch('/api/notes', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch notes');
     }
-  });
-const saveNote = note =>
-  fetch('/api/notes', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(note)
-  });
-const deleteNote = id =>
-  fetch('/api/notes/${id}', {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json'
+
+    const notes = await response.json();
+    return notes;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+const saveNote = async (note) => {
+  try {
+    const response = await fetch('/api/notes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(note)
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to save note');
     }
-  });
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+const deleteNote = async (id) => {
+  try {
+    const response = await fetch(`/api/notes/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to delete note');
+    }
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
 const renderActiveNote = () => {
   hide(saveNoteBtn);
   if (activeNote.id) {
