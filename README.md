@@ -6,7 +6,7 @@
 
 
 
-this application is used to write notes, save written notes and delete the notes when no longer needed
+this application is used to write notes, save written notes, and delete the notes when no longer needed
 
 ## Table of Contents
 
@@ -23,7 +23,7 @@ No installation is necessary.
 
 ## Usage
 
-To use the application, click the "Get Started" button on the opening page. then you will be brought to the note taking page.Write a title and details for the notes you want to save. When you do, a save button will appear. Click the save button, and the note will appear on the left hand side of the screen. To view the note, click on the title. To delete the note, click on the trash can icon. The note will be removed.
+To use the application, click the "Get Started" button on the opening page. Then you will be brought to the note taking page. Write a title and details for the notes you want to save. When you do, a save button will appear. Click the save button, and the note will appear on the left hand side of the screen. To view the note, click on the title. To delete the note, click on the trash can icon. The note will be removed.
 
 ## Contributing
 
