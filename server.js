@@ -61,8 +61,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 8000;
-}
-app.listen(port);
+app.listen(PORT, () =>
+  console.log(`App listening at http://localhost:${PORT}`)
+);
