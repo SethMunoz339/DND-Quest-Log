@@ -4,16 +4,24 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "start": "server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "nodemon server.js"
   },
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "note-taker",
+    "heroku"
+  ],
+  "author": "Seth Munoz",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.16.4",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": "16.18.0"
   }
 }
