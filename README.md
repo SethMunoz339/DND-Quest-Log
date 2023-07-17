@@ -6,7 +6,7 @@
 
 
 
-this application is used to write notes, save written notes and delete the notes when no longer needed
+this application is used to write notes, save written notes, and delete the notes when no longer needed
 
 ## Table of Contents
 
